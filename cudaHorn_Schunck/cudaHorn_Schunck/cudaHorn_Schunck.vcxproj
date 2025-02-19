@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{64280AC3-611E-47F5-9894-2066AD20E1F5}</ProjectGuid>
+    <RootNamespace>cudaHorn_Schunck</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.8.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <PublicIncludeDirectories>C:\opencv\install\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opencv_aruco4110d.lib;opencv_bgsegm4110d.lib;opencv_bioinspired4110d.lib;opencv_calib3d4110d.lib;opencv_ccalib4110d.lib;opencv_core4110d.lib;opencv_datasets4110d.lib;opencv_dnn4110d.lib;opencv_dnn_objdetect4110d.lib;opencv_dnn_superres4110d.lib;opencv_dpm4110d.lib;opencv_face4110d.lib;opencv_features2d4110d.lib;opencv_flann4110d.lib;opencv_fuzzy4110d.lib;opencv_gapi4110d.lib;opencv_hfs4110d.lib;opencv_highgui4110d.lib;opencv_imgcodecs4110d.lib;opencv_imgproc4110d.lib;opencv_img_hash4110d.lib;opencv_intensity_transform4110d.lib;opencv_line_descriptor4110d.lib;opencv_mcc4110d.lib;opencv_ml4110d.lib;opencv_objdetect4110d.lib;opencv_optflow4110d.lib;opencv_phase_unwrapping4110d.lib;opencv_photo4110d.lib;opencv_plot4110d.lib;opencv_quality4110d.lib;opencv_rapid4110d.lib;opencv_reg4110d.lib;opencv_rgbd4110d.lib;opencv_saliency4110d.lib;opencv_shape4110d.lib;opencv_signal4110d.lib;opencv_stereo4110d.lib;opencv_stitching4110d.lib;opencv_structured_light4110d.lib;opencv_superres4110d.lib;opencv_surface_matching4110d.lib;opencv_text4110d.lib;opencv_tracking4110d.lib;opencv_video4110d.lib;opencv_videoio4110d.lib;opencv_videostab4110d.lib;opencv_wechat_qrcode4110d.lib;opencv_xfeatures2d4110d.lib;opencv_ximgproc4110d.lib;opencv_xobjdetect4110d.lib;opencv_xphoto4110d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\opencv\install\x64\vc17\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>C:\opencv\install\include;%(Include)</Include>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CudaCompile Include="kernel.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Horn-Schunck.h" />
+    <ClInclude Include="Horn_SchunkSharedMem.h" />
+    <ClInclude Include="horn_schunkVisual.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.8.targets" />
+  </ImportGroup>
+</Project>
